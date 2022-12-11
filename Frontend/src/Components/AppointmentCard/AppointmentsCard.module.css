@@ -1,0 +1,56 @@
+.detailCont{
+    width: 98%;
+    display: flex;
+    padding: 1em;
+    background-color: white;
+    overflow: auto;
+    margin-top: 0.5em;
+}
+
+.detailCont p{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.date{
+    padding: 0.5em;
+    background-color: #F1F0F5;
+}
+
+.userDetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-left: 1em;
+}
+
+.userDetails p {
+    margin: 3px 0;
+}
+
+.action{
+    margin-top: 1em;
+}
+
+.specialP{
+    color: #787887;
+}
+
+.active{
+    width: 4em;
+    background-color: rgb(228, 255, 228);
+    padding: 1px;
+    border-radius: 3px;
+    text-align: center;
+    color: rgb(0, 206, 69);
+}
+
+.cancelled{
+    width: 5em;
+    background-color: #FEE9E5;
+    padding: 1px;
+    border-radius: 3px;
+    text-align: center;
+    color: #F8433F;
+}

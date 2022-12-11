@@ -1,0 +1,120 @@
+.container p,
+.container h3{
+    margin: 1em 0;
+}
+
+.container h5{
+    margin:1.67em 0;
+}
+
+.content{
+    margin:40px 0;
+}
+.form{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+.left{
+    width: 450px;
+    background-color: #ffffff;
+    border: 1px solid rgb(231, 225, 225);
+    margin: 0 20px;
+    height: 470px;
+}
+.right{
+    width: 400px;
+    margin: 0 30px;
+}
+.timings{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1px 15px;
+    border-top: 1px solid rgb(231, 225, 225);
+}
+.appoint{
+    padding: 0px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #414146;
+}
+.date{
+    display: flex;
+    align-items: center;
+}
+.time{
+    display: flex;
+    align-items: center;
+}
+.doctor{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 15px;
+    border-top: 1px solid rgb(231, 225, 225); 
+    color: #787887;
+}
+.hospital{
+    /* height: 120px; */
+    color: #787887;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid rgb(231, 225, 225);
+}
+.patienthead h5{
+    font-size: 14px;
+    width: 100%;
+    color: #414146;
+}
+.name{
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #b4b4be;
+    border-radius: 2px;
+    outline: none;
+    background-color: #fff;
+    color: #414146;
+    font-size: 14px;
+}
+.confirm{
+    background-color: #199FD9;
+    color: white;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    border-radius: 3px;
+    padding:10px 15px;
+    width:100%;
+    margin:30px 8px 20px;
+}
+.conditions{
+    font-size: 12px;
+}
+
+.button{
+    height: 4rem;
+    width: 8rem;
+    border:1px solid #b3b3b3;
+    color : #032cb3;
+    background-color: transparent;
+    border-radius: 3px;
+    outline: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.button:hover{
+    border:1px solid #32B7DF;
+    color : #32B7DF;
+}
+@media screen and (max-width: 860px) {
+    .form{
+        flex-direction: column;
+        width:450px;
+        margin: auto;
+    }
+}
