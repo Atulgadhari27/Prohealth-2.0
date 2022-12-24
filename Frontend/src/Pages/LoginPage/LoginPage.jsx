@@ -6,10 +6,10 @@ import {useHistory, Link} from 'react-router-dom'
 import Form from "react-bootstrap/Form"
 import { isAuth } from '../../assets/isAuth'
 import { useState } from 'react'
-import {ReactLoading} from 'react-loading'
+import ReactLoading from 'react-loading'
 import profile from '../../assets/profile.png'
 
-const LoginPage = ({}) => {
+const LoginPage = (props) => {
     const [email, setEmail] = React.useState("")
     // const [password, setPassword] = React.useState("")
     const [message, setMessage] = useState(false)
@@ -23,50 +23,46 @@ const LoginPage = ({}) => {
 
     const history = useHistory();
 
-    const handleOnSubmit = async (e) => {
-        e.preventDefault()
-        console.log("submitRunning");
-        try {
-            const config = {
-                headers: {
-                    "Content-type" : "application/json",
-                }
-            }
-
-            const res = await axios.post(
-                'http://localhost:5000/auth/login', 
-                {
-                    email, 
-                    password,
-                },
-                config
-            )
-            setMessage(false);
-            console.log(res);
-            localStorage.setItem("userInfo", JSON.stringify(res.data))
-            isAuth();
-            history.push("/");
-        } catch (error) {
-            setMessage(true);
-            console.log("Error Message")
+    const handlePatientLogin = async (healthID, password) => {
+      setLoading(true);
+      const res = await axios.post('http://localhost:5000/login/patient', 
+        {
+          healthID,
+          password
+        },
+        {
+          headers: {
+            "Content-type" : "application/json",
+          }
         }
-    }
+      )
 
-    React.useEffect(() => {
-        if(isAuth()){
-            history.goBack()
-        }
-    }, [isAuth()])
-
-    const redirectToRegister = () => {
-        history.push("/register")
+      console.log(res);
+      const data = res.data;
+      if (data.errors) {
+        setUsernameError(data.errors.healthID);
+        setPasswordError(data.errors.password);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        props.settoastCondition({
+          status: "success",
+          message: "Logged in Successfully!!!",
+        });
+        setUsernameError("");
+        setPasswordError("");
+        props.setToastShow(true);
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        // console.log(data);
+        history.push("/");
+      }
     }
 
     const handleLogin = async (e) => {
       e.preventDefault();
       switch (Toggle) {
         case "Patient":
-          // handlePatientLogin(username, password);
+          handlePatientLogin(username, password);
           break;
         case "Doctor":
           // handleDoctorAdminLogin(username, password, "/login/doctor");
@@ -208,4 +204,4 @@ const LoginPage = ({}) => {
     );
 };
 
-export {LoginPage}
+export {LoginPage};

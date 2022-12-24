@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const BookingDetails = () => {
     const {id, time} = useParams();
-    const [docData, setDocData] = React.useState({});
+    const [docData, setDocData] = React.useState(null);
     const [name, setName] = React.useState("");
     const [phone, setPhone] = React.useState("");
 
@@ -20,8 +20,9 @@ const BookingDetails = () => {
     const history = useHistory();
 
     React.useEffect(async () => {
-        const res = await axios.get(`http://localhost:5000/doctors/${id}/id`);
-        setDocData(res.data.doctor[0]);
+        const res = await axios.get(`http://localhost:5000/doctor/${id}/id`);
+        console.log(res);
+        setDocData(res.data.data[0]);
     }, [])
 
     const handleChangeTime = () => {
@@ -29,7 +30,7 @@ const BookingDetails = () => {
     }
 
     const handleBookAppointment = async () => {
-        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        const userInfo = JSON.parse(localStorage.getItem("userInfo")).patient;
         console.log(userInfo);
         if(userInfo){
             try {
@@ -47,7 +48,7 @@ const BookingDetails = () => {
                         contact: phone,
                         time: moment(time).format("LLL"),
                         status: true,
-                        user_id: userInfo._id,
+                        patient_id: userInfo._id,
                     },
                     config
                 )
@@ -62,6 +63,18 @@ const BookingDetails = () => {
 
         }
     }
+
+    const image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+    let docName = "";
+    let speciality = "";
+    if(docData != null){
+        docName = docData.name.firstName + " " + docData.name.middleName + " " + docData.name.surName;
+        
+        docData.specialization.map((s) => {
+            speciality += s.special + " ";
+        });
+    }
+
 
     return (
         <div className = {styles.container}>
@@ -86,12 +99,12 @@ const BookingDetails = () => {
                         </div>
                         <div className={styles.doctor}>
                             <div>
-                            <img src={docData.image_url} style={{width:"130px"}} alt = "avatar"></img>
+                            <img src={image_url} style={{width:"130px"}} alt = "avatar"></img>
                             </div>
                             <div style={{marginLeft:"20px"}}>
-                                <h3>{docData.name}</h3>
-                                <p>{docData.specialization}</p>
-                                <p>Experience of {docData.experience} years</p>
+                                <h3>{docName}</h3>
+                                <p>{speciality}</p>
+                                <p>Experience of 10 years</p>
                             </div>
                         </div>
                         <div className={styles.hospital}>
@@ -100,8 +113,8 @@ const BookingDetails = () => {
                                 style={{width:"130px"}} alt = "hospital img"></img>
                             </div>
                             <div style={{marginLeft:"20px"}}>
-                                <h3>{docData.clinic_name}</h3>
-                                <p>{docData.area}, {docData.city}</p>
+                                {docData && <h3>{docData.org}</h3>}
+                                {docData &&     <p>{docData.address.district}, {docData.address.city}</p>}
                             </div>
                         </div>
                     </div>

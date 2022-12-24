@@ -15,16 +15,17 @@ import AllDoctor from '../Pages/DoctorResultPage/AllDoctor'
 
 
 
-const Routes = () => {
+const Routes = (props) => {
+  // toast.configure();
+  // console.log(props);
     return  (
         <Switch>
             <Route exact path = '/'>
-                <Navbar/>
-                <LandingPage/>
+                <LandingPage settoastCondition={props.settoastCondition} setToastShow={props.setToastShow}/>
                 <Footer/>
             </Route>
             <Route exact path = '/login'>
-                <LoginPage/>
+                <LoginPage settoastCondition={props.settoastCondition} setToastShow={props.setToastShow}/>
                 <Footer/>
             </Route>
             <Route exact path = '/register'>
@@ -43,27 +44,27 @@ const Routes = () => {
             </Route>
             <Route exact path = "/doctors/:id/id">
                 <Navbar/>
-                <DoctorResultPage/>
+                <DoctorResultPage />
                 <Footer/>   
             </Route>
             <Route exact path = "/doctors/:speciality/speciality">
                 <Navbar/>
-                <DoctorResultBySpeciality/>
+                <DoctorResultBySpeciality />
                 <Footer/>   
             </Route>
             <Route exact path = "/appointments">
-                <Navbar/>
+                <Navbar />
                 <Appointments/>
                 <Footer/>
             </Route>
             <Route exact path = "/appointments/:id/:time">
-                <Navbar/>
-                <BookingDetails/>
+                <Navbar />
+                <BookingDetails />
                 <Footer/>
             </Route>
             <Route exact path = "/appointments/:id/id/time">
-                <Navbar/>
-                <BookingCard/>
+                <Navbar />
+                <BookingCard />
                 <Footer/>
             </Route>
         </Switch>

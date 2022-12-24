@@ -32,7 +32,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography component={'div'} >{children}</Typography>
         </Box>
       )}
     </div>
@@ -198,10 +198,11 @@ const BookingCard = () => {
     let slot = [];
 
     data.map(item => {
-      slot.push(item.time);
-      console.log(typeof(item.time));
+      if(item.status == true)
+        slot.push(item.time);
+      // console.log(typeof(item.time));
     })
-    console.log(slot);
+    // console.log(slot);
     setBookedSlots(slot);
   }
 
@@ -219,7 +220,7 @@ const BookingCard = () => {
     getBookedSlots(id)
       .then(res => {
         handleBookedSlots(res.data.data);
-        console.log(res.data.data);
+        // console.log(res.data.data);
       })
   }, [value])
 

@@ -8,13 +8,17 @@ import { isAuth } from '../../assets/isAuth'
 import { useEffect } from 'react'
 import logo from '../../assets/download.jpg'
 
-const Navbar = () => {
+const Navbar = (props) => {
     const history = useHistory()
     const [isLoggedIn, setIsLoggedIn] = useState(isAuth());
 
     const handleLogout = () => {
         localStorage.removeItem("userInfo");
-        setIsLoggedIn(isAuth());
+        props.settoastCondition({
+            status: "success",
+            message: "Logged out Successfully!!!",
+          });
+        props.setToastShow(true);
     }
 
     useEffect(() => {   
@@ -49,7 +53,13 @@ const Navbar = () => {
                 <span>Consult with top doctors</span>
             </div>
             <div className = {styles.left}
-                onClick = {() => history.push("/doctors")}>
+                onClick = {() => {props.settoastCondition({
+                        status: "success",
+                        message: "Logged in Successfully!!!",
+                    });
+                    props.setToastShow(true);
+                    }
+                  }>
                 <strong>
                     Pharmacy
                 </strong>

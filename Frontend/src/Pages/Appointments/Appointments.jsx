@@ -5,11 +5,13 @@ import styles from "./Appointments.module.css"
 import {useSelector} from 'react-redux';
 // import {getUserAppointments, getIndvDocData} from "../../utils"
 import axios from 'axios'
+import { useState } from 'react';
 
 
 const getUserAppointments = (user_id) => {
     return axios.get(`http://localhost:5000/booking/${user_id}/userBookings`)
     .then((res) => {
+        // console.log(res);
         return res.data.data;
     })
 }
@@ -35,26 +37,51 @@ const Appointments = () => {
         
       }
       const handleConfirmCancel= (id) => {
-        
         cancelAppointment(id)
         .then(res => {
-          console.log(res.data);
+          setC(!c);
         })
     }
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const userInfo = JSON.parse(localStorage.getItem("userInfo")).patient;
     
+    const image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+    const name = userInfo.name.firstName + " " + userInfo.name.middleName + " " + userInfo.name.surName;
+    const [c, setC] = React.useState(true);
     const [appointments ,setAppointments] = React.useState([]);
-    const listItems = appointments.map((appt) =>  
+    const bookedItems = appointments.map((appt) =>  
                 <AppointmentsCard data = {appt} key={appt._id} handleConfirmCancel = {handleConfirmCancel}/> 
             );
+    const [cancelledAppointments, setCancelledAppointments] = React.useState([]);
 
+    const cancelledItems = cancelledAppointments.map((appt) => {
+        return <AppointmentsCard data = {appt} key={appt._id} handleConfirmCancel = {handleConfirmCancel}/> 
+    });
+    const setData = (data) => {
+        const booked = data.filter((ele) => {
+            return ele.status === true;
+        })
+        // console.log(booked);
+        const cancel = data.filter((ele) => {
+            return ele.status === false;
+        })
+        // console.log(cancel)
+
+        setAppointments(booked);
+        setCancelledAppointments(cancel);
+    }
     React.useEffect(() => {
+        // console.log(userInfo);
         getUserAppointments(userInfo._id)
         .then((data) => {
             // console.log(data);
-            setAppointments(data);
+            setData(data);
         })
     },[appointments])
+
+    const [active, setActive] = useState("Appointments");
+    const handleActive = (str) => {
+        setActive(str);
+    }
 
     return (
         <div className={styles.background}>
@@ -69,7 +96,7 @@ const Appointments = () => {
                             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="avatar"/>
                         </div>
                         <div className={styles.userDetails_right}>
-                            <p><b>{userInfo.name}</b></p>
+                            <p><b>{name}</b></p>
                             <p>{userInfo.email}</p>
                         </div>
                     </div>
@@ -78,31 +105,37 @@ const Appointments = () => {
             <div className={styles.main}>
                 <div className={styles.main_left}>
                     <Divider/>
-                    <div className={styles.menu_item}>
-                        <p>Medical records</p>
+                    <div className={active === "Medical" ? styles.active : styles.menu_item} onClick = {() => handleActive("Medical")}>
+                        <p>Medical records</p>  
                     </div>
                     <Divider/>
-                    <div className={styles.active}>
+                    <div className={active === "Appointments" ? styles.active : styles.menu_item} onClick = {() => handleActive("Appointments")}>
                         <p>Appointments</p>
                     </div>
                     <Divider/>
-                    <div className={styles.menu_item}>
+                    <div className={active === "Lab" ? styles.active : styles.menu_item} onClick = {() => handleActive("Lab")}>
                         <p>Lab Tests</p>
                     </div>
                     <Divider/>
-                    <div className={styles.menu_item}>
+                    <div className={active === "Payment" ? styles.active : styles.menu_item} onClick = {() => handleActive("Payment")}>
                         <p>Payment</p>
                     </div>
                     <Divider/>
-                    <div className={styles.menu_item}>
-                        <p>Medical records</p>
+                    <div className={active === "Cancelled" ? styles.active : styles.menu_item} onClick = {() => handleActive("Cancelled")}>
+                        <p>Cancelled Appointments</p>
                     </div>
                     <Divider/>
                 </div>
                 <div className={styles.main_right}>
                         {
-                            listItems
+                            active == "Appointments" && 
+                            bookedItems
                         }
+                        {
+                            active == "Cancelled" && 
+                            cancelledItems
+                        }
+                        
                 </div>
             </div>
         </div>            

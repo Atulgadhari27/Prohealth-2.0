@@ -3,8 +3,9 @@ import styles from "./LandingPage.module.css"
 import {useHistory} from "react-router-dom";
 import { useEffect, useState } from "react";
 import FrontImg from "../assets/Banner.jpeg"
+import { Navbar } from './Navbar/Navbar';
 
-const LandingPage = () => {
+const LandingPage = (props) => {
 
     const history = useHistory();
     
@@ -20,6 +21,8 @@ const LandingPage = () => {
         history.push("/doctors/allDoctor")
     }
     return (
+        <>
+        <Navbar settoastCondition={props.settoastCondition} setToastShow={props.setToastShow}/>
         <div className = {styles.container}>
             <div className={styles.topimage}>
                 {/* <img src="https://www.practostatic.com/consumer-home/desktop/images/1597423628/banner.png" */}
@@ -136,6 +139,7 @@ const LandingPage = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

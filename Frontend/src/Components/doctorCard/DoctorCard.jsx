@@ -6,6 +6,13 @@ import styles from './DoctorCard.module.css'
 
 const DoctorCard = ({data}) => {
     const history = useHistory();
+    console.log(data);
+    const image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+    const name = data.name.firstName + " " + data.name.middleName + " " + data.name.surName;
+    let speciality = "";
+    data.specialization.map((s) => {
+        speciality += s.special + " ";
+    });
 
     const handleBooking = () => {
         const time = moment().format('llll');
@@ -18,20 +25,20 @@ const DoctorCard = ({data}) => {
                 <div className = {styles.left}>
                     <img 
                         className = {styles.avatar}
-                        src = {data.image_url}
+                        src = {image_url}
                         alt = "avatar"
                     />
                     <div className = {styles.badge}></div>
                 </div>
                 <div className = {styles.mid}> 
-                    <h1>{data.name}</h1>
-                    <p className = {styles.grey}>{data.specialization}</p>
-                    <p className = {styles.grey}>{data.experience} years</p>
-                    <p><strong>{data.area}, {data.city}</strong> ♦️ {data.clinic_name}</p>
-                    <p>Rs.{data.consulting_fee} Consultation fee at clinic</p>
+                    <h1>{name}</h1>
+                    <p className = {styles.grey}>{speciality}</p>
+                    <p className = {styles.grey}>10 years</p>
+                    <p><strong>{data.orgAddress.taluka}, {data.orgAddress.city}</strong> ♦️ {data.org}</p>
+                    <p>Rs.200 Consultation fee at clinic</p>
                     <div className = {styles.line_break}></div>
                     <div className = {styles.ratings}>
-                        👍 {data.likes}
+                        👍 10000
                     </div>
                 </div>
                 <div className = {styles.right}> 

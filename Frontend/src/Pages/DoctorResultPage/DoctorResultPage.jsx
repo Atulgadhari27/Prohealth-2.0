@@ -4,31 +4,30 @@ import {DoctorCard} from '../../Components/doctorCard/DoctorCard'
 import axios from 'axios'
 import { useParams } from 'react-router'
 
-function getDoctorByID(id){
-    console.log("inside")
-    return axios.get(`http://localhost:5000/doctors/${id}/id`)
-    .then((res) => {
-        return res.data.doctor[0];
-    })
-}
+
 
 const DoctorResultPage =  () => {
     const {id} = useParams()
-    const [doctor, setDoctor] = React.useState({})
+    const [doctor, setDoctor] = React.useState(null)
 
-    React.useState(() => {
-        getDoctorByID(id)
-        .then((data) => {
-          setDoctor(data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      }, [])
-    
+    React.useEffect(() => {
+        const getData = async () => {
+            try {
+              const res = await axios.get(
+                `http://localhost:5000/doctor/${id}/id`,
+              );
+              setDoctor(res.data.data[0]);
+            } catch (e) {
+              console.log(e);
+            }
+          };
+
+          getData();
+      }, [id]);
+    console.log(doctor);
     return (
         <div>
-          <DoctorCard data = {doctor}/>
+          {doctor && <DoctorCard data = {doctor}/>}
         </div>
     )
 }

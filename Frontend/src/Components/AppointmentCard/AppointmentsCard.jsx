@@ -32,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
 
 
 function getDoctorByID(id){
-  console.log("inside")
-  return axios.get(`http://localhost:5000/doctors/${id}/id`)
+  // console.log("inside")
+  return axios.get(`http://localhost:5000/doctor/${id}/id`)
   .then((res) => {
-      return res.data.doctor[0];
+      return res.data.data[0];
   })  
 }
 
@@ -72,7 +72,7 @@ const AppointmentsCard = ({data, id, handleConfirmCancel}) => {
   }
 
   const handleCancel = () => {
-    console.log(id);
+    // console.log(id);
     handleDeleteDialogOpen();
   }
 
@@ -127,7 +127,7 @@ const AppointmentsCard = ({data, id, handleConfirmCancel}) => {
       >
           <DialogTitle id="alert-dialog-title">
               <ErrorOutlineIcon/>
-              <Typography variant="subtitle1">
+              <Typography component={'div'} variant="subtitle1">
                   Are you sure you want to delete?
               </Typography>
           </DialogTitle>

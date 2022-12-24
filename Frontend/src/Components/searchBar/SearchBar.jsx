@@ -23,7 +23,15 @@ const SearchBar = () => {
     //dynamic search request 
 
     const getDoctors = () => {
-        const res = allDoctorsList.filter(object => object.name.toLowerCase().indexOf(mainQuery.toLowerCase()) >= 0 || object.specialization.toLowerCase().indexOf(mainQuery.toLowerCase()) >= 0);
+        const res = allDoctorsList.filter(data => {
+            const name = data.name.firstName + " " + data.name.middleName + " " + data.name.surName;
+            let speciality = "";
+            data.specialization.map((s) => {
+                speciality += s.special + " ";
+            });
+            return name.toLowerCase().indexOf(mainQuery.toLowerCase()) >= 0 || speciality.toLowerCase().indexOf(mainQuery.toLowerCase()) >= 0; 
+        })
+        
         // console.log(mainQuery);
         // console.log(res);
         return res;
@@ -41,8 +49,9 @@ const SearchBar = () => {
 
 
     React.useEffect(async () => {
-        const res = await axios.get("http://localhost:5000/doctors");
-        setAllDoctorsList(res.data);
+        const res = await axios.get("http://localhost:5000/doctor/all");
+        // console.log(res.data.data);
+        setAllDoctorsList(res.data.data);
     }, [])
 
     
@@ -78,7 +87,7 @@ const SearchBar = () => {
                             //     ? <div style={{ padding: "15px 0" }}>Loading results...</div>
                                 reqDoctorsList?.map((item) => {
                                     return (
-                                        <SearchResultCard data = {item} onClick = {handleDoctorsPage} key = {item.id}/>
+                                        <SearchResultCard data = {item} onClick = {handleDoctorsPage} key = {item._id}/>
                                     )
                                 })
                         }

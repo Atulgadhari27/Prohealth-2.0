@@ -6,7 +6,7 @@ import { useParams } from 'react-router'
 
 function getDoctor(){
     // console.log("inside")
-    return axios.get(`http://localhost:5000/doctors/`)
+    return axios.get(`http://localhost:5000/doctor/`)
     .then((res) => {
         // console.log(res);
         return res.data;
