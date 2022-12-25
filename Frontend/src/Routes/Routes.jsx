@@ -25,7 +25,7 @@ const Routes = (props) => {
                 <Footer/>
             </Route>
             <Route exact path = '/login'>
-                <LoginPage settoastCondition={props.settoastCondition} setToastShow={props.setToastShow}/>
+                <LoginPage settoastCondition={props.settoastCondition} setToastShow={props.setToastShow} setUser = {props.setUser}/>
                 <Footer/>
             </Route>
             <Route exact path = '/register'>
@@ -54,7 +54,7 @@ const Routes = (props) => {
             </Route>
             <Route exact path = "/appointments">
                 <Navbar />
-                <Appointments/>
+                <Appointments user = {props.user}/>
                 <Footer/>
             </Route>
             <Route exact path = "/appointments/:id/:time">

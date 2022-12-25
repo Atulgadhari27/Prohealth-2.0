@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [healthID, setHealthID] = useState("");
+  const [user, setUser] = useState("");
   const [prescriptionID, setPrescriptionID] = useState("");
   const [toastShow, setToastShow] = useState(false);
   const [toastCondition, settoastCondition] = useState({
@@ -33,7 +33,7 @@ function App() {
   }
   return (
     <div className="container">
-      <Routes settoastCondition={settoastCondition} setToastShow={setToastShow}/>
+      <Routes settoastCondition={settoastCondition} setToastShow={setToastShow} setUser = {setUser} user = {user}/>
       <ToastContainer/>
     </div>
   );

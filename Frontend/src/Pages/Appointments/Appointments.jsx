@@ -42,7 +42,7 @@ const Appointments = () => {
           setC(!c);
         })
     }
-    const userInfo = JSON.parse(localStorage.getItem("userInfo")).patient;
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
     const image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
     const name = userInfo.name.firstName + " " + userInfo.name.middleName + " " + userInfo.name.surName;

@@ -144,7 +144,7 @@ doctorSchema.statics.login = async function (email, password) {
     }
     throw Error("Incorrect Password");
   }
-  throw Error("Invalid email");
+  throw Error("Invalid Email");
 };
 
 const Doctor = mongoose.model("doctor", doctorSchema);

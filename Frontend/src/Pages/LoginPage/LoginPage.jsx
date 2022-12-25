@@ -38,7 +38,8 @@ const LoginPage = (props) => {
       )
 
       console.log(res);
-      const data = res.data;
+      const data = res.data.patient;
+
       if (data.errors) {
         setUsernameError(data.errors.healthID);
         setPasswordError(data.errors.password);
@@ -51,12 +52,52 @@ const LoginPage = (props) => {
         });
         setUsernameError("");
         setPasswordError("");
+        props.setUser("Patient")
         props.setToastShow(true);
         localStorage.setItem("userInfo", JSON.stringify(data));
         // console.log(data);
         history.push("/");
       }
     }
+
+    const handleDoctorLogin = async (email, password) => {
+      setLoading(true);
+      const res = await axios.post(`http://localhost:5000/login/doctor`, 
+        {
+          email,
+          password
+        },
+        {
+          headers: {
+            "Content-type" : "application/json",
+          }
+        }
+      )
+
+      console.log(res);
+      const data = res.data.doctor;
+
+      if (data.errors) {
+        setUsernameError(data.errors.email);
+        setPasswordError(data.errors.password);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        props.settoastCondition({
+          status: "success",
+          message: "Logged in Successfully!!!",
+        });
+        setUsernameError("");
+        setPasswordError("");
+        props.setUser("Doctor");
+        props.setToastShow(true);
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        // console.log(data);
+        history.push("/");
+      }
+    }
+    
+    
 
     const handleLogin = async (e) => {
       e.preventDefault();
@@ -65,7 +106,7 @@ const LoginPage = (props) => {
           handlePatientLogin(username, password);
           break;
         case "Doctor":
-          // handleDoctorAdminLogin(username, password, "/login/doctor");
+          handleDoctorLogin(username, password);
           break;
         case "Admin":
           // handleDoctorAdminLogin(username, password, "/login/admin");
