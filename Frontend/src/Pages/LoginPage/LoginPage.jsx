@@ -20,7 +20,7 @@ const LoginPage = (props) => {
     const [password, setPassword] = useState("");
     const [usernameError, setUsernameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-
+  
     const history = useHistory();
 
     const handlePatientLogin = async (healthID, password) => {

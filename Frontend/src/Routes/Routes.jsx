@@ -53,8 +53,8 @@ const Routes = (props) => {
                 <Footer/>   
             </Route>
             <Route exact path = "/appointments">
-                <Navbar />
-                <Appointments user = {props.user}/>
+                <Navbar settoastCondition={props.settoastCondition} setToastShow={props.setToastShow} setUser = {props.setUser}/>
+                <Appointments user = {props.user} />
                 <Footer/>
             </Route>
             <Route exact path = "/appointments/:id/:time">

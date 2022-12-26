@@ -7,14 +7,25 @@ import { useState } from 'react';
 
 function App() {
 
-  const [user, setUser] = useState("");
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const [user, setUser] = useState(() => {
+    if(userInfo == null){
+      return ""
+    }
+    else{
+      if("healthID" in userInfo){
+        return "Patient"
+      }
+      else
+        return "Doctor"
+    }
+  });
   const [prescriptionID, setPrescriptionID] = useState("");
   const [toastShow, setToastShow] = useState(false);
   const [toastCondition, settoastCondition] = useState({
     status: "",
     message: "",
   });
-
   if (toastShow) {
     if (toastCondition.status === "success") {
       toast.success(toastCondition.message);

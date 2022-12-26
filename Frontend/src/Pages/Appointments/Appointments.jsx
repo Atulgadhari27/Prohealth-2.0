@@ -5,18 +5,20 @@ import styles from "./Appointments.module.css"
 import {useSelector} from 'react-redux';
 // import {getUserAppointments, getIndvDocData} from "../../utils"
 import axios from 'axios'
+// import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import { AccordianComp } from '../../Components/Accordian/Accordian';
 
 
-const getUserAppointments = (user_id) => {
-    return axios.get(`http://localhost:5000/booking/${user_id}/userBookings`)
+const getUserAppointments = (user_id, suffix) => {
+    return axios.get(`http://localhost:5000/booking/${user_id}${suffix}`)
     .then((res) => {
         // console.log(res);
         return res.data.data;
     })
 }
 
-const Appointments = () => {
+const Appointments = (props) => {
     const cancelAppointment = async (id) => {
         try {
           const config = {
@@ -43,7 +45,7 @@ const Appointments = () => {
         })
     }
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    
+    // console.log(userInfo);
     const image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
     const name = userInfo.name.firstName + " " + userInfo.name.middleName + " " + userInfo.name.surName;
     const [c, setC] = React.useState(true);
@@ -71,11 +73,20 @@ const Appointments = () => {
     }
     React.useEffect(() => {
         // console.log(userInfo);
-        getUserAppointments(userInfo._id)
-        .then((data) => {
-            // console.log(data);
-            setData(data);
-        })
+        if(props.user == "Patient"){
+            getUserAppointments(userInfo._id, "/userBookings")
+            .then((data) => {
+                // console.log(data);
+                setData(data);
+            })
+        }
+        else{
+            getUserAppointments(userInfo._id, "/doctorBookings")
+            .then((data) => {
+                // console.log(data);
+                setData(data);
+            })
+        }
     },[appointments])
 
     const [active, setActive] = useState("Appointments");
@@ -135,7 +146,10 @@ const Appointments = () => {
                             active == "Cancelled" && 
                             cancelledItems
                         }
-                        
+                        {
+                            active == 'Medical' && 
+                            <AccordianComp/>
+                        }
                 </div>
             </div>
         </div>            
