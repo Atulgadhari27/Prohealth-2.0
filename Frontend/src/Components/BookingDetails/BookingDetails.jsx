@@ -30,7 +30,7 @@ const BookingDetails = () => {
     }
 
     const handleBookAppointment = async () => {
-        const userInfo = JSON.parse(localStorage.getItem("userInfo")).patient;
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         console.log(userInfo);
         if(userInfo){
             try {

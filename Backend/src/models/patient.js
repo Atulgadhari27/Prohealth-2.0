@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const { isEmail, isMobilePhone } = require("validator");  
-// const prescriptionSchema = require("./prescription");
+const prescriptionSchema = require("./prescription");
 const res = require("express/lib/response");
 
 const patientSchema = new mongoose.Schema({
@@ -143,7 +143,7 @@ const patientSchema = new mongoose.Schema({
       },
     },
   },
-  prescriptions: [],
+  prescriptions: [prescriptionSchema],
 });
 
 patientSchema.pre("save", async function (next) {

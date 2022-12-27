@@ -8,6 +8,7 @@ dotenv.config()
 const registerRoutes = require('./Routes/registerRoute')
 const doctorRoute = require("./Routes/doctorRoute")
 const appointmentRoute = require("./Routes/appointmentRoute");
+const prescriptionRoute = require("./Routes/prescriptionRouter")
 // const bookingRoutes = require("./Routes/bookingRoutes")
 
 
@@ -44,4 +45,5 @@ mongoose
 app.use(registerRoutes)
 app.use(doctorRoute)
 app.use(appointmentRoute);
+app.use(prescriptionRoute);
 // app.use("/booking", bookingRoutes);

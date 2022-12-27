@@ -13,7 +13,7 @@ import { AccordianComp } from '../../Components/Accordian/Accordian';
 const getUserAppointments = (user_id, suffix) => {
     return axios.get(`http://localhost:5000/booking/${user_id}${suffix}`)
     .then((res) => {
-        // console.log(res);
+        console.log(res);
         return res.data.data;
     })
 }
@@ -87,7 +87,7 @@ const Appointments = (props) => {
                 setData(data);
             })
         }
-    },[appointments])
+    },[c])
 
     const [active, setActive] = useState("Appointments");
     const handleActive = (str) => {

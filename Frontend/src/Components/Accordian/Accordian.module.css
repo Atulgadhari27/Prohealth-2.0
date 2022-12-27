@@ -22,12 +22,29 @@
     align-items: center;
     justify-content:flex-start;
     flex-grow: 1;
-    padding-left: 1em;
+    padding-left: 1rem;
 }
 
-.userDetails p {
-    margin: 3px 0;
+.medicines{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:flex-start;
+    flex-grow: 1;
+    margin-left: 3rem;
 }
+
+.complaints{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-grow: 1;
+    margin-left: 3rem;
+}
+.userDetails p, .complaints p{
+    margin: 3px 10px;
+}
+
 
 .action{
     margin-top: 1em;
