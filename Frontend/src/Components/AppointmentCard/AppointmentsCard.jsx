@@ -42,7 +42,7 @@ function getDoctorByID(id){
 const AppointmentsCard = ({data, id, handleConfirmCancel}) => {
   const [open, setOpen] = React.useState(false);
   
-  const [doctor, setDoctor] = React.useState({})
+  const [doctor, setDoctor] = React.useState(null)
 
     React.useEffect(() => {
         getDoctorByID(data.doctor_id)
@@ -92,8 +92,8 @@ const AppointmentsCard = ({data, id, handleConfirmCancel}) => {
         <p><b>{data.name}</b></p>
         <p className={styles.specialP}>On {moment(data.time).format('LT')}</p>
         <div className={styles.specialP}>
-          <p>At {doctor.clinic_name},</p>
-          <p>{doctor.area}, {doctor.city}</p>
+          <p>At {doctor && doctor.org},</p>
+          <p>{doctor && doctor.orgAddress.city}</p>
         </div>
         <div className={styles.active}>
           {

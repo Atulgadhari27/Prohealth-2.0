@@ -68,6 +68,7 @@ module.exports.doctor_register = async (req, res) => {
 
     res.status(200).json({ doctor });
   } catch (err) {
+    console.log(err);
     const errors = handleError(err);
     res.json({errors});
     res.status(404);

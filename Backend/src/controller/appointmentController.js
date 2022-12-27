@@ -12,7 +12,7 @@ const handleError = (err) => {
   };
 
 module.exports.bookAppointment = async (req, res) => {
-    const {doctor_id, name, contact, status, time, patient_id} = req.body;
+    const {doctor_id, name, contact, status, time, patient_id, email} = req.body;
     try {
         const book = await Appointment.create({
             doctor_id: doctor_id,
@@ -20,7 +20,8 @@ module.exports.bookAppointment = async (req, res) => {
             contact: contact,
             time: time,
             status: true,
-            patient_id: patient_id
+            patient_id: patient_id,
+            email: email
         })
 
         if(book){
@@ -31,7 +32,8 @@ module.exports.bookAppointment = async (req, res) => {
                 contact: book.contact,
                 time: book.time,
                 status: book.status,
-                patient_id: book.patient_id
+                patient_id: book.patient_id,
+                email:book.email
             })
         }
         else{
@@ -45,11 +47,7 @@ module.exports.bookAppointment = async (req, res) => {
 }
 
 module.exports.getAllBookings = async (req, res) => {
-    const {id} = req.params;
-
-    const data = await Appointment.find({
-        doctor_id: id
-    });
+    const data = await Appointment.find();
     res.status(201).json({data});
 }
 
@@ -82,7 +80,7 @@ module.exports.updateBookingStatus = async (req, res) => {
     );
 
     if(book){
-        res.status(201)
+        res.status(201).json({book});
     }
     else{
         res.status(400);

@@ -38,13 +38,14 @@ const LoginPage = (props) => {
       )
 
       console.log(res);
-      const data = res.data.patient;
+      
 
-      if (data.errors) {
-        setUsernameError(data.errors.healthID);
-        setPasswordError(data.errors.password);
+      if ('errors' in res.data) {
+        setUsernameError(res.data.errors.healthID);
+        setPasswordError(res.data.errors.password);
         setLoading(false);
       } else {
+        const data = res.data.patient;
         setLoading(false);
         props.settoastCondition({
           status: "success",
@@ -75,13 +76,13 @@ const LoginPage = (props) => {
       )
 
       console.log(res);
-      const data = res.data.doctor;
-
-      if (data.errors) {
-        setUsernameError(data.errors.email);
-        setPasswordError(data.errors.password);
+      
+      if ('errors' in res.data) {
+        setUsernameError(res.data.errors.email);
+        setPasswordError(res.data.errors.password);
         setLoading(false);
       } else {
+        const data = res.data.doctor;
         setLoading(false);
         props.settoastCondition({
           status: "success",

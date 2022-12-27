@@ -1,0 +1,914 @@
+{
+    "name" : {
+        "firstName": "Ajay",
+        "middleName": "A",
+        "surName": "Bedre"
+    },
+    "org": "Sanjeevani Hospital",
+    "orgAddress": {
+        "building": "Sanjeevani Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411048
+    },
+    "dob": "1989-09-12",
+    "mobile": "8628983900",
+    "email": "atulgadhari27@gmail.com",
+    "adharCard": 987979696868,
+    "bloodGroup": "B-",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "Abc@0987",
+    "address": {
+        "building": "Parvati Niwas",
+        "city": "Jawhar",
+        "taluka": "Jawhar",
+        "district": "Palghar",
+        "state": "Maharashtra",
+        "pincode": 401603
+    },
+    "specialization": [
+        {
+            "special": "Dietitian"
+        },
+        {
+            "special": "Gynecologist"
+        }
+    ],
+    "emergencyno": "9112777890",
+    "orgNumber": "98768927399"
+},
+{
+    "name" : {
+        "firstName": "Ishaan",
+        "middleName": "B",
+        "surName": "Thakkar"
+    },
+    "org": "Deccan Hardikar Hospital",
+    "orgAddress": {
+        "building": "Deccan Hardikar Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411548
+    },
+    "dob": "1989-02-32",
+    "mobile": "8624583900",
+    "email": "rishit.dixit18@gmail.com",
+    "adharCard": 956979696868,
+    "bloodGroup": "A-",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "ishaan123",
+    "address": {
+        "building": "Latan garden",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Palghar",
+        "state": "Maharashtra",
+        "pincode": 401603
+    },
+    "specialization": [
+        {
+            "special": "Allergy and immunology"
+        },
+        {
+            "special": "Physician"
+        }
+    ],
+    "emergencyno": "9113477890",
+    "orgNumber": "96768927399"
+}
+{
+    "name" : {
+        "firstName": "Jai",
+        "middleName": "B",
+        "surName": "Shimpi"
+    },
+    "org": "Apollo Spectra Hospitals",
+    "orgAddress": {
+        "building": "Apollo Spectra Hospitals",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411148
+    },
+    "dob": "1988-10-11",
+    "mobile": "8678983900",
+    "email": "rishit.21910050@viit.ac.in",
+    "adharCard": 987977896868,
+    "bloodGroup": "AB-",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "jai@@123",
+    "address": {
+        "building": "Sambhaji Society",
+        "city": "Palghar",
+        "taluka": "Palghar",
+        "district": "Palghar",
+        "state": "Maharashtra",
+        "pincode": 401623
+    },
+    "specialization": [
+        {
+            "special": "Anesthesiology"
+        },
+        {
+            "special": "Physician"
+        }
+    ],
+    "emergencyno": "8212777890",
+    "orgNumber": "99768927399"
+}
+{
+    "name" : {
+        "firstName": "Ananya",
+        "middleName": "C",
+        "surName": "kolte"
+    },
+    "org": "Global Hospital & Research Institute",
+    "orgAddress": {
+        "building": "Global Hospital & Research Institute",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411445
+    },
+    "dob": "1987-04-23",
+    "mobile": "8677983900",
+    "email": "anandshirole4@gmail.com",
+    "adharCard": 778979696868,
+    "bloodGroup": "O+",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "ananya123",
+    "address": {
+        "building": "Tejaswa Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 401645
+    },
+    "specialization": [
+        {
+            "special": "Cardiovascular disease"
+        },
+        {
+            "special": "internal Medicine"
+        }
+    ],
+    "emergencyno": "9112767890",
+    "orgNumber": "98764927399"
+}
+{
+    "name" : {
+        "firstName": "Aditi",
+        "middleName": "F",
+        "surName": "Dixit"
+    },
+    "org": "Sahyadri Super Speciality  Hospital",
+    "orgAddress": {
+        "building": "Sahyadri Super Speciality  Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411568
+    },
+    "dob": "1989-10-31",
+    "mobile": "8628977900",
+    "email": "anand.21910161@viit.ac.in",
+    "adharCard": 987979688868,
+    "bloodGroup": "AB+",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "anjali123",
+    "address": {
+        "building": "Woodland Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 401687
+    },
+    "specialization": [
+        {
+            "special": "Gastroenterology"
+        },
+        {
+            "special": "Internal medicine"
+        }
+    ],
+    "emergencyno": "9134777890",
+    "orgNumber": "78768927399"
+}
+{
+    "name" : {
+        "firstName": "Darsh",
+        "middleName": "H",
+        "surName": "Gandhi"
+    },
+    "org": "Mangeshkar Hospital",
+    "orgAddress": {
+        "building": "SMangeshkar Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411033
+    },
+    "dob": "1986-05-23",
+    "mobile": "7728983900",
+    "email": "atul.21910620@viit.ac.in",
+    "adharCard": 777979696868,
+    "bloodGroup": "O+",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "darsh123",
+    "address": {
+        "building": "Sagar Society",
+        "city": "Thane",
+        "taluka": "Thane",
+        "district": "Thane",
+        "state": "Maharashtra",
+        "pincode": 401333
+    },
+    "specialization": [
+        {
+            "special": "Brain injury medicine"
+        },
+        {
+            "special": "Neurology"
+        }
+    ],
+    "emergencyno": "7712777890",
+    "orgNumber": "77768927399"
+}
+{
+    "name" : {
+        "firstName": "Varun",
+        "middleName": "R",
+        "surName": "joglekar"
+    },
+    "org": "Ranka Hospital",
+    "orgAddress": {
+        "building": "Ranka Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411334
+    },
+    "dob": "1989-10-11",
+    "mobile": "7628983900",
+    "email": "varun@gmail.com",
+    "adharCard": 897979696868,
+    "bloodGroup": "B-",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "varun123",
+    "address": {
+        "building": "National Society",
+        "city": "Kanakvali",
+        "taluka": "Sindhudurg",
+        "district": "Sindhudurg",
+        "state": "Maharashtra",
+        "pincode": 401623
+    },
+    "specialization": [
+        {
+            "special": "Child neurology"
+        },
+        {
+            "special": "Neurology"
+        }
+    ],
+    "emergencyno": "9116777890",
+    "orgNumber": "9876887399"
+}
+{
+    "name" : {
+        "firstName": "Mihir",
+        "middleName": "Y",
+        "surName": "Kshirsagar"
+    },
+    "org": "Mantri Hospital",
+    "orgAddress": {
+        "building": "Mantri Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411036
+    },
+    "dob": "1979-07-11",
+    "mobile": "8538983900",
+    "email": "mihir@gmail.com",
+    "adharCard": 787979696868,
+    "bloodGroup": "AB-",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "mihir123",
+    "address": {
+        "building": "Nishigandha Corporative Society",
+        "city": "Thane",
+        "taluka": "Thane",
+        "district": "Thane",
+        "state": "Maharashtra",
+        "pincode": 401633
+    },
+    "specialization": [
+        {
+            "special": "Glaucoma ophthalmology"
+        },
+        {
+            "special": "Ophthalmology"
+        }
+    ],
+    "emergencyno": "9222777890",
+    "orgNumber": "98769827399"
+}
+{
+    "name" : {
+        "firstName": "Agneya",
+        "middleName": "C",
+        "surName": "Agaskar"
+    },
+    "org": "Pune Adventist Hospital",
+    "orgAddress": {
+        "building": "Pune Adventist Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411348
+    },
+    "dob": "1989-09-12",
+    "mobile": "8682983900",
+    "email": "agneya@gmail.com",
+    "adharCard": 987979996868,
+    "bloodGroup": "B-",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "agneya123",
+    "address": {
+        "building": "Paramount Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 401633
+    },
+    "specialization": [
+        {
+            "special": "Anatomical pathology"
+        },
+        {
+            "special": "Pathology"
+        }
+    ],
+    "emergencyno": "9133777890",
+    "orgNumber": "87668927399"
+}
+{
+    "name" : {
+        "firstName": "Ajinkya",
+        "middleName": "F",
+        "surName": "Deshmukh"
+    },
+    "org": "Jehangir Hospital",
+    "orgAddress": {
+        "building": "Jehangir Hospital",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411038
+    },
+    "dob": "1989-09-11",
+    "mobile": "8628933900",
+    "email": "ajinkya007@gmail.com",
+    "adharCard": 987979696868,
+    "bloodGroup": "O-",
+    "education": [
+        {
+            "degree": "MBBS MD (Medicine)"
+        }
+    ],
+    "password": "Abc@0987",
+    "address": {
+        "building": "Sajjangad Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Pune",
+        "pincode": 401623
+    },
+    "specialization": [
+        {
+            "special": "Adolescent medicine"
+        },
+        {
+            "special": "Pediatrics"
+        }
+    ],
+    "emergencyno": "9112667890",
+    "orgNumber": "78768927399"
+}
+
+
+{
+    "name" : {
+        "firstName": "Rishi",
+        "middleName": "A",
+        "surName": "Dixit"
+    },
+    "dob": "2001-01-14",
+    "mobile": "9730209772",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 123456789123,
+    "bloodGroup": "A+",
+    "address": {
+        "building": "Sai Palace",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411003
+    },
+    "password": "Rishi@0987",
+    "diseases": [{
+        "disease": "Asthma",
+        "yrs": "2"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Mayur",
+            "surName": "Sharma"
+        },
+        "mobile": "9421574987",
+        "email": "Sharma21@gmail.com",
+        "relation": "Uncle",
+        "address": {
+            "building": "Parvati Niwas",
+            "city": "Jawhar",
+            "taluka": "Jawhar",
+            "district": "Palghar",
+            "state": "Maharashtra",
+            "pincode": 401603
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Anand",
+        "middleName": "S",
+        "surName": "Shirole"
+    },
+    "dob": "2001-02-20",
+    "mobile": "9238732323",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 146456789123,
+    "bloodGroup": "O+",
+    "address": {
+        "building": "Aditya Garden City",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411046
+    },
+    "password": "anand123",
+    "diseases": [{
+        "disease": "diarrhea",
+        "yrs": "3"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Ravi",
+            "surName": "Kishan"
+        },
+        "mobile": "9421574987",
+        "email": "Ravi@gmail.com",
+        "relation": "Brother",
+        "address": {
+            "building": "Shanti Niwas",
+            "city": "Mumbai",
+            "taluka": "Mumbai",
+            "district": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": 401632
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Mayur",
+        "middleName": "B",
+        "surName": "Sonawane"
+    },
+    "dob": "2001-03-12",
+    "mobile": "9238732423",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 132456789123,
+    "bloodGroup": "AB+",
+    "address": {
+        "building": "DSK Ranwara",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411032
+    },
+    "password": "mayur123",
+    "diseases": [{
+        "disease": "Headache",
+        "yrs": "1"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Tejas",
+            "surName": "Deshpande"
+        },
+        "mobile": "9421574321",
+        "email": "Tejas@gmail.com",
+        "relation": "Uncle",
+        "address": {
+            "building": "Sairam society",
+            "city": "Ahmednagar",
+            "taluka": "Nagar",
+            "district": "Nagar",
+            "state": "Maharashtra",
+            "pincode": 401641
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Namrata",
+        "middleName": "S",
+        "surName": "Thakur"
+    },
+    "dob": "2001-12-12",
+    "mobile": "9233732323",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 146456789123,
+    "bloodGroup": "O-",
+    "address": {
+        "building": "Sriram Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411046
+    },
+    "password": "namrata123",
+    "diseases": [{
+        "disease": "Cancer",
+        "yrs": "3"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Akshay",
+            "surName": "Lokare"
+        },
+        "mobile": "9421574987",
+        "email": "Ravi@gmail.com",
+        "relation": "Brother",
+        "address": {
+            "building": "Shanti Niwas",
+            "city": "Mumabi",
+            "taluka": "Mumbai",
+            "district": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": 401632
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Atul",
+        "middleName": "C",
+        "surName": "Gadhari"
+    },
+    "dob": "2001-03-14",
+    "mobile": "9234232323",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 336456789123,
+    "bloodGroup": "A-",
+    "address": {
+        "building": "Sai Nagar",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411032
+    },
+    "password": "atul123",
+    "diseases": [{
+        "disease": "covid",
+        "yrs": "1"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Ram",
+            "surName": "Nair"
+        },
+        "mobile": "9421532987",
+        "email": "Ravi@gmail.com",
+        "relation": "Brother",
+        "address": {
+            "building": "Rahul nagar",
+            "city": "Pune",
+            "taluka": "Pune",
+            "district": "Pune",
+            "state": "Maharashtra",
+            "pincode": 401752
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Pratiksha",
+        "middleName": "S",
+        "surName": "Sale"
+    },
+    "dob": "2001-11-13",
+    "mobile": "9234236723",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 336676789123,
+    "bloodGroup": "A-",
+    "address": {
+        "building": "Ram Nagar",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411026
+    },
+    "password": "pratiksha123",
+    "diseases": [{
+        "disease": "Acute Lymphoma",
+        "yrs": "10"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Sakshi",
+            "surName": "Deshmukh"
+        },
+        "mobile": "8321532987",
+        "email": "sakshi@gmail.com",
+        "relation": "Sister",
+        "address": {
+            "building": "Ram nagar",
+            "city": "Pune",
+            "taluka": "Pune",
+            "district": "Pune",
+            "state": "Maharashtra",
+            "pincode": 401732
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Vaishnavi",
+        "middleName": "K",
+        "surName": "Yanpallewar"
+    },
+    "dob": "2001-11-24",
+    "mobile": "9234232347",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 336456790123,
+    "bloodGroup": "B-",
+    "address": {
+        "building": "Amar society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411069
+    },
+    "password": "vaishnavi123",
+    "diseases": [{
+        "disease": "Appendicitis",
+        "yrs": "3"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Tejam",
+            "surName": "Godse"
+        },
+        "mobile": "8131532987",
+        "email": "tejam@gmail.com",
+        "relation": "Father",
+        "address": {
+            "building": "Mira CO OP society",
+            "city": "Kankavli",
+            "taluka": "Sindhudurg",
+            "district": "Sindhudurg",
+            "state": "Maharashtra",
+            "pincode": 401736
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Amrut",
+        "middleName": "A",
+        "surName": "Kulkarni"
+    },
+    "dob": "2001-12-31",
+    "mobile": "8234232323",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 446456789123,
+    "bloodGroup": "AB-",
+    "address": {
+        "building": "Greenland Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411043
+    },
+    "password": "amrut123",
+    "diseases": [{
+        "disease": "Bipolar",
+        "yrs": "3"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Ketan",
+            "surName": "Shinde"
+        },
+        "mobile": "9434532987",
+        "email": "ketan@gmail.com",
+        "relation": "Uncle",
+        "address": {
+            "building": "Lakeview society",
+            "city": "Rajapur",
+            "taluka": "Ratnagiri",
+            "district": "Ratnagiri",
+            "state": "Maharashtra",
+            "pincode": 401756
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Siddesh",
+        "middleName": "D",
+        "surName": "Kothadi"
+    },
+    "dob": "2002-08-14",
+    "mobile": "8672232323",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 556456789123,
+    "bloodGroup": "O+",
+    "address": {
+        "building": "Firoudous Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411456
+    },
+    "password": "siddesh123",
+    "diseases": [{
+        "disease": "Brain tumour",
+        "yrs": "4"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Akshay",
+            "surName": "Khadelwal"
+        },
+        "mobile": "7421532987",
+        "email": "akshay@gmail.com",
+        "relation": "Brother",
+        "address": {
+            "building": "Anjana Society",
+            "city": "Alibaug",
+            "taluka": "Alibaug",
+            "district": "raigad",
+            "state": "Maharashtra",
+            "pincode": 401733
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Yash",
+        "middleName": "F",
+        "surName": "Kanawade"
+    },
+    "dob": "2001-05-18",
+    "mobile": "9234692323",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 336477789123,
+    "bloodGroup": "AB-",
+    "address": {
+        "building": "Ganesh society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411678
+    },
+    "password": "yash123",
+    "diseases": [{
+        "disease": "bronchitis",
+        "yrs": "1"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Aditya",
+            "surName": "Chattre"
+        },
+        "mobile": "9421782987",
+        "email": "aditya@gmail.com",
+        "relation": "Father",
+        "address": {
+            "building": "Sun Empire",
+            "city": "Thane",
+            "taluka": "Thane",
+            "district": "Thane",
+            "state": "Maharashtra",
+            "pincode": 401769
+        }
+    }
+},
+{
+    "name" : {
+        "firstName": "Kunal",
+        "middleName": "G",
+        "surName": "Deshpande"
+    },
+    "dob": "2001-09-23",
+    "mobile": "9464232323",
+    "email": "atulgadhari99@gmail.com",
+    "adharCard": 326456789123,
+    "bloodGroup": "B+",
+    "address": {
+        "building": "Blue Hills Society",
+        "city": "Pune",
+        "taluka": "Pune",
+        "district": "Pune",
+        "state": "Maharashtra",
+        "pincode": 411452
+    },
+    "password": "kunal123",
+    "diseases": [{
+        "disease": "Cellulitis",
+        "yrs": "5"
+    }],
+    "contactPerson": {
+            "name" : {
+            "firstName": "Rama",
+            "surName": "Aslekar"
+        },
+        "mobile": "9421565987",
+        "email": "rama@gmail.com",
+        "relation": "Aunt",
+        "address": {
+            "building": "Gurudatta society",
+            "city": "Palghar",
+            "taluka": "Palghar",
+            "district": "Palghar",
+            "state": "Maharashtra",
+            "pincode": 401752
+        }
+    }
+}

@@ -9,6 +9,7 @@ const appointmentSchema = new mongoose.Schema({
     name : String,
     contact : String,
     time : String,
+    email: String,
     status:Boolean,
     patient_id : {
         type: mongoose.Schema.Types.ObjectId,

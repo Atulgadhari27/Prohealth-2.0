@@ -1,7 +1,7 @@
 import { Divider } from '@material-ui/core'
 import React from 'react'
 import { AppointmentsCard } from '../../Components/AppointmentCard/AppointmentsCard'
-import styles from "./Appointments.module.css"
+import styles from "./Admindashboard.module.css"
 import {useSelector} from 'react-redux';
 // import {getUserAppointments, getIndvDocData} from "../../utils"
 import axios from 'axios'
@@ -9,17 +9,36 @@ import axios from 'axios'
 import { useState } from 'react';
 import { AccordianComp } from '../../Components/Accordian/Accordian';
 import moment from 'moment';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 
 
-const getUserAppointments = (user_id, suffix) => {
-    return axios.get(`http://localhost:5000/booking/${user_id}${suffix}`)
+const getAllAppointments = () => {
+    return axios.get(`http://localhost:5000/booking/all`)
     .then((res) => {
         console.log(res);
         return res.data.data;
     })
 }
 
-const Appointments = (props) => {
+const getAllDoctors = () => {
+    return axios.get(`http://localhost:5000/doctor/all`)
+    .then((res) => {
+        console.log(res);
+        return res.data.data;
+    })
+}
+
+const getAllPatients = () => {
+    return axios.get(`http://localhost:5000/patient/all`)
+    .then((res) => {
+        console.log(res);
+        return res.data.data;
+    })
+}
+
+const Admindashboard = (props) => {
 
     const getPatientEmail = async (id) => {
         try{
@@ -95,8 +114,10 @@ const Appointments = (props) => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     // console.log(userInfo);
     const image_url = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-    const name = userInfo.name.firstName + " " + userInfo.name.middleName + " " + userInfo.name.surName;
+    const name = "Admin"
     const [c, setC] = React.useState(true);
+    const [allDoctors, setAllDoctors] = React.useState([]);
+    const [allPatients, setAllPatients] = React.useState([]);
     const [appointments ,setAppointments] = React.useState([]);
     const bookedItems = appointments.map((appt) =>  
                 <AppointmentsCard data = {appt} key={appt._id} handleConfirmCancel = {handleConfirmCancel}/> 
@@ -121,20 +142,21 @@ const Appointments = (props) => {
     }
     React.useEffect(() => {
         // console.log(userInfo);
-        if(props.user == "Patient"){
-            getUserAppointments(userInfo._id, "/userBookings")
-            .then((data) => {
-                // console.log(data);
-                setData(data);
-            })
-        }
-        else{
-            getUserAppointments(userInfo._id, "/doctorBookings")
-            .then((data) => {
-                // console.log(data);
-                setData(data);
-            })
-        }
+        getAllAppointments()
+        .then((data) => {
+            // console.log(data);
+            setData(data);
+        })
+
+        getAllPatients()
+        .then((data) => {
+            setAllPatients(data);
+        })
+
+        getAllDoctors()
+        .then((data) => {
+            setAllDoctors(data);
+        })
     },[c])
 
     const [active, setActive] = useState("Appointments");
@@ -156,7 +178,7 @@ const Appointments = (props) => {
                         </div>
                         <div className={styles.userDetails_right}>
                             <p><b>{name}</b></p>
-                            <p>{userInfo.email}</p>
+                            <p>admin@admin</p>
                         </div>
                     </div>
                 </div>
@@ -164,20 +186,16 @@ const Appointments = (props) => {
             <div className={styles.main}>
                 <div className={styles.main_left}>
                     <Divider/>
-                    <div className={active === "Medical" ? styles.active : styles.menu_item} onClick = {() => handleActive("Medical")}>
-                        <p>Medical records</p>  
+                    <div className={active === "Doctors" ? styles.active : styles.menu_item} onClick = {() => handleActive("Medical")}>
+                        <p>Doctors</p>
                     </div>
                     <Divider/>
                     <div className={active === "Appointments" ? styles.active : styles.menu_item} onClick = {() => handleActive("Appointments")}>
                         <p>Appointments</p>
                     </div>
                     <Divider/>
-                    <div className={active === "Lab" ? styles.active : styles.menu_item} onClick = {() => handleActive("Lab")}>
-                        <p>Lab Tests</p>
-                    </div>
-                    <Divider/>
-                    <div className={active === "Payment" ? styles.active : styles.menu_item} onClick = {() => handleActive("Payment")}>
-                        <p>Payment</p>
+                    <div className={active === "Patients" ? styles.active : styles.menu_item} onClick = {() => handleActive("Lab")}>
+                        <p>Patients</p>
                     </div>
                     <Divider/>
                     <div className={active === "Cancelled" ? styles.active : styles.menu_item} onClick = {() => handleActive("Cancelled")}>
@@ -195,9 +213,45 @@ const Appointments = (props) => {
                             cancelledItems
                         }
                         {
-                            active == 'Medical' && 
-                            <AccordianComp/>
+                            active == 'Doctors' && 
+                            allDoctors.map((data, i) => {
+                                let speciality = "";
+                                    data.specialization.map((s) => {
+                                        speciality += s.special + " ";
+                                    });
+                                return (
+                                    <Accordion key={i}>
+                                        <AccordionSummary
+                                        expandIcon = ""
+                                        aria-controls={`panel${i + 1}a-content`}
+                                        id={`panel${i + 1}a-header`}>
+                                            <div className={styles.detailCont}>
+                                                <div className={styles.userDetails}>
+                                                    <p><b>{`Dr. ${data.name.firstName} ${data.name.surName}`}</b></p>
+                                                    <p>Clinic Name: {data.org}</p>
+                                                    <p>Speciality: {speciality}</p>
+                                                </div>
+                                            </div>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <div className={styles.userDetails}>
+                                                <p><b> Organization Address:</b> {data.org} {data.orgAddress.city} {data.orgAddress.pincode}</p>
+                                            </div>
+                                            <div className={styles.userDetails}>
+                                                <p><b>Mobile No :</b> {data.mobile}</p>
+                                            </div>
+                                            <div className={styles.userDetails}>
+                                                <p><b>Email :</b> {data.email}</p>
+                                            </div>
+                                            <div className={styles.userDetails}>
+                                                <p><b>Organization No. :</b> {data.orgNumber}</p>
+                                            </div>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                )
+                            })
                         }
+                        
                 </div>
             </div>
         </div>            
@@ -205,4 +259,4 @@ const Appointments = (props) => {
     )
 }
 
-export {Appointments}
+export {Admindashboard}

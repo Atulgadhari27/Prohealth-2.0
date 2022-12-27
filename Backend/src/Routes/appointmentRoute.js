@@ -4,7 +4,7 @@ const { bookAppointment, getAllBookings, getUserBookings, updateBookingStatus, g
 const router = Router();
 
 router.post("/booking/book", bookAppointment);
-router.get("/booking/:id/allBookings", getAllBookings);
+router.get("/booking/all", getAllBookings);
 router.get("/booking/:id/userBookings", getUserBookings);
 router.get("/booking/:id/doctorBookings", getDoctorBookings);
 router.post("/booking/updateStatus", updateBookingStatus);

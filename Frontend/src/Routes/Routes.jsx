@@ -13,6 +13,8 @@ import BookingDetails from '../Components/BookingDetails/BookingDetails'
 import DoctorResultBySpeciality from '../Pages/DoctorResultPage/DoctorResultBySpeciality'
 import AllDoctor from '../Pages/DoctorResultPage/AllDoctor'
 import { Consult } from '../Components/Consult/Consult'
+import { Prescription } from '../Components/Prescription/Prescription'
+import { Admindashboard } from '../Pages/AdminDashboard/Admindashboard'
 
 
 
@@ -57,6 +59,16 @@ const Routes = (props) => {
                 <Navbar/>
                 <DoctorResultBySpeciality />
                 <Footer/>   
+            </Route>
+            <Route exact path = "/prescription/:id/id">
+                <Navbar/>
+                <Prescription/>
+                <Footer/>
+            </Route>
+            <Route exact path = "/admin/dashboard">
+                <Navbar/>
+                <Admindashboard/>
+                <Footer/>
             </Route>
             <Route exact path = "/appointments">
                 <Navbar settoastCondition={props.settoastCondition} setToastShow={props.setToastShow} setUser = {props.setUser}/>

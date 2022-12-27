@@ -60,7 +60,7 @@ const Consult = (props) => {
                 {
                     bookedData.map((data, i) => {
                         return(
-                            <ConsultCard data = {data} key = {i}/>
+                            <ConsultCard data = {data} key = {i} user = {props.user}/>
                         )
                     })
                 }

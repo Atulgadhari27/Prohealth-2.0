@@ -14,6 +14,7 @@ const BookingDetails = () => {
     const [docData, setDocData] = React.useState(null);
     const [name, setName] = React.useState("");
     const [phone, setPhone] = React.useState("");
+    const [email, setEmail] = React.useState("");
 
     const user = useSelector(state => state.authReducer.currentUser);
 
@@ -27,6 +28,23 @@ const BookingDetails = () => {
 
     const handleChangeTime = () => {
         history.push(`/appointments/${id}/id/time`);
+    }
+
+    const getPatientEmail = async (id) => {
+        try{
+            const res = await axios.get(`http://localhost:5000/patient/${id}/id`);
+            return res;
+        }catch(err){
+            console.log(err);
+        }
+    }
+    const getDoctorEmail = async (id) => {
+        try{
+            const res = await axios.get(`http://localhost:5000/doctor/${id}/id`);
+            return res;
+        }catch(err){
+            console.log(err);
+        }
     }
 
     const handleBookAppointment = async () => {
@@ -49,9 +67,39 @@ const BookingDetails = () => {
                         time: moment(time).format("LLL"),
                         status: true,
                         patient_id: userInfo._id,
+                        email: email,
                     },
                     config
                 )
+                
+                const patient = await getPatientEmail(userInfo._id);
+                const doctor = await getDoctorEmail(docData._id)
+                const doctorEmail = doctor.data.data.email;
+                const doctorName = "Dr." + doctor.data.data[0].name.firstName + " " + doctor.data.data[0].name.surName;
+                
+                const mail = await axios.post(
+                    "http://localhost:5000/sendMail",
+                    {
+                        email: email,
+                        time: moment(time).format('MMMM Do YYYY, h:mm:ss a'),
+                        patientName: name,
+                        doctorName: doctorName,
+                        status: true,
+                    },
+                    config
+                  )
+        
+                  const mail2 = await axios.post(
+                    "http://localhost:5000/sendMail",
+                    {
+                        email: doctorEmail,
+                        time: moment(time).format('MMMM Do YYYY, h:mm:ss a'),
+                        patientName: name,
+                        doctorName: doctorName,
+                        status: true,
+                    },
+                    config
+                  )
                 
                 history.push("/");
                 
@@ -135,7 +183,7 @@ const BookingDetails = () => {
                         </div>
                         <div>
                             <p>Your Email</p>
-                            <input type="email" className={styles.name} placeholder="Enter Your Email ID (Optional)"></input>
+                            <input type="email" className={styles.name} value={email}  onChange={(e) => setEmail(e.target.value)} placeholder="Enter Your Email ID "></input>
                         </div>
                         <div>
                             <button className = {styles.confirm} onClick = {handleBookAppointment}>Book Appointment</button>

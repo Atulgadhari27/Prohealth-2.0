@@ -14,6 +14,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -39,9 +40,9 @@ function getDoctorByID(id){
   })  
 }
 
-const ConsultCard = ({data}) => {
+const ConsultCard = ({data, user}) => {
   const [open, setOpen] = React.useState(false);
-  
+  const history = useHistory();
   const [doctor, setDoctor] = React.useState(null)
 
     let docName = "";
@@ -70,6 +71,9 @@ const ConsultCard = ({data}) => {
 
   const [dialogDelete, setDeleteDialog] = React.useState(false);
 
+  const handlePrescription = () => {
+    history.push(`/prescription/${data._id}/id`)
+  }
   const handleDeleteDialogOpen = () => {
     setDeleteDialog(true);
   }
@@ -94,7 +98,12 @@ const ConsultCard = ({data}) => {
           <h5 className={styles.specialP}>{moment(data.time).format('MMM')}</h5>
       </div>
       <div className={styles.userDetails}>
-        <p><b>DR. {docName}</b></p>
+        {
+          user === "Patient" && <p><b>DR. {docName}</b></p>
+        }
+        {
+          user === "Doctor" && <p><b>{data.name}</b></p>
+        }
         <p className={styles.specialP}>On {moment(data.time).format('LT')}</p>
         <div className={styles.specialP}>
           <p>{orgAddress}</p>
@@ -113,13 +122,18 @@ const ConsultCard = ({data}) => {
         </div>
       </div>
       <div className={styles.action}> 
-        {/* <Button variant="outlined" color="primary" style={{marginRight: "1em"}}>
-          View Details
-        </Button> */}
         {
           data.status === true &&
           <Button variant="outlined" color="primary" onClick={handleJoin}>
             Join Now
+          </Button>
+        }
+      </div>
+      <div className={styles.action}> 
+        {
+          user === "Doctor" &&
+          <Button variant="outlined" color="primary" onClick={handlePrescription}>
+            Write Prescription
           </Button>
         }
       </div>

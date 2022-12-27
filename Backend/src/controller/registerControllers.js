@@ -1,5 +1,6 @@
 const Patient = require("../models/patient");
 const { createToken } = require("../utils/createToken");
+const mongoose = require("mongoose");
 
 const maxAge = 3 * 24 * 60 * 60;
 const handleError = (err) => {
@@ -86,3 +87,33 @@ module.exports.patient_login = async (req, res) => {
     res.status(404);
   }
 };
+
+
+module.exports.getPatient = async (req, res) => {
+  const data = await Patient.find();
+  res.status(200).json({data});
+};
+
+
+module.exports.getPatientById = async(req, res) => {
+  const { id } = req.params;
+  
+  try {
+    if( !mongoose.Types.ObjectId.isValid(id) ) 
+      throw Error("Invalid Doctor Id");
+
+    const data = await Patient.findOne({_id: id});
+    
+    if(data){
+      res.status(200).json({data});
+    }
+    else{
+      throw Error("Invalid Patient Id");
+    }
+
+  } catch (err) {
+    console.log(err);
+    const error = handleError(err);
+    res.json({error});
+  }
+}
