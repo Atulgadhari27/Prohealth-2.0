@@ -17,7 +17,7 @@ const handleError = (err) => {
 
   // duplicate error code
   if (err.code === 11000) {
-    errors.healthID = "This AdharCard is already Registerd on System.";
+    errors.healthID = "This AdharCard is already Registered on System.";
     return errors;
   }
 
@@ -33,7 +33,8 @@ const handleError = (err) => {
 };
 
 module.exports.patient_register = async (req, res) => {
-  const diseases = Object.values(req.body.diseases);
+  console.log(req.body);
+  const diseases = Object.values(req.body.patient.diseases);
   const {
     name,
     dob,
@@ -44,7 +45,7 @@ module.exports.patient_register = async (req, res) => {
     address,
     password,
     contactPerson,  
-  } = req.body;
+  } = req.body.patient;
 
   const healthID = adharCard;
   try {
@@ -65,6 +66,7 @@ module.exports.patient_register = async (req, res) => {
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(200).json({ patient });
   } catch (err) {
+    console.log(err.message);
     const errors = handleError(err);
     res.json({ errors });
   }
@@ -78,7 +80,7 @@ module.exports.patient_login = async (req, res) => {
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(200).send({ patient });
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
     const errors = handleError(err);
     res.json({errors});
     res.status(404);

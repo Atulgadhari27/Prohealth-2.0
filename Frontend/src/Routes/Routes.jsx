@@ -12,6 +12,7 @@ import { BookingCard } from '../Components/bookingCard/BookingCard'
 import BookingDetails from '../Components/BookingDetails/BookingDetails'
 import DoctorResultBySpeciality from '../Pages/DoctorResultPage/DoctorResultBySpeciality'
 import AllDoctor from '../Pages/DoctorResultPage/AllDoctor'
+import { Consult } from '../Components/Consult/Consult'
 
 
 
@@ -29,12 +30,17 @@ const Routes = (props) => {
                 <Footer/>
             </Route>
             <Route exact path = '/register'>
-                <RegisterPage/>
+                <RegisterPage settoastCondition={props.settoastCondition} setToastShow={props.setToastShow} setUser = {props.setUser}/>
                 <Footer/>
             </Route>
             <Route exact path = '/doctors'>
                 <Navbar/>
                 <DoctorSearch/>
+                <Footer/>
+            </Route>
+            <Route exact path = '/consult'>
+                <Navbar/>
+                <Consult settoastCondition={props.settoastCondition} setToastShow={props.setToastShow} user = {props.user}/>
                 <Footer/>
             </Route>
             <Route exact path = '/doctors/allDoctor'>

@@ -45,7 +45,7 @@ const Navbar = (props) => {
                 <span>Book an appointment</span>
             </div>
             <div className = {styles.left}
-                onClick = {() => history.push("/doctors")}>
+                onClick = {() => history.push("/consult")}>
                 <strong>
                     Consult
                 </strong>
